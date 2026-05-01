@@ -2064,5 +2064,11 @@ input:focus {
   </head>
   <body> 
    <div id="root"></div
-   <script type="module" src="./build-standalone.mjs"></script>
-
+   <script>
+document.getElementById("root").innerHTML = `
+  <div style="color:white; padding:40px;">
+    <h1>Proof ROI Engine</h1>
+    <p>It works.</p>
+  </div>
+`;
+</script>
