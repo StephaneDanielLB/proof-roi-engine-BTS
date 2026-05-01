@@ -1,41 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <title>Proof ROI Engine</title>
+</head>
 <body>
-<h1>TEST OK</h1>
-</body>
-</html>
 <div id="root"></div>
 <script>
-(function () {
-  const params = new URLSearchParams(window.location.search);
-  const accessToken = params.get("access");
-  const allowedTokens = ["bts-2026", "tvreviewers", "review-tech"];
-  const isValid =
-
-    typeof accessToken === "string" &&
-    allowedTokens.some(t => accessToken.startsWith(t));
-
-  if (!isValid) {
-    document.body.innerHTML = `
-      <div style="height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0b0f;color:white;">
-        <div style="text-align:center;">
-          <h2>🔒 Professional Access Only</h2>
-          <p>This tool is available by invitation only.</p>
-        </div>
-      </div>
-    `;
-
-    return;
-
-  }
-
-  const iframe = document.createElement("iframe");
-  iframe.src = "./standalone-demo.html" + window.location.search;
-  iframe.style.width = "100%";
-  iframe.style.height = "100vh";
-  iframe.style.border = "none";
-  document.getElementById("root").appendChild(iframe);
-
-})();
-
+document.getElementById("root").innerHTML = "ENGINE OK";
 </script>
+</body>
+</html>
