@@ -5501,8 +5501,8 @@ var rateCardAdapterDiagnostics = {
 
 // src/App.js
 var root = document.getElementById("root");
-var logoSrc = window.BTS_LOGO_SRC || "./BuyTryShare Logo (inverted).png";
-var proofMarkSrc = window.PROOF_MARK_SRC || "./The Proof ROI Engine.png";
+var logoSrc = window.BTS_LOGO_SRC || "../BuyTryShare Logo (inverted).png";
+var proofMarkSrc = window.PROOF_MARK_SRC || "../The Proof ROI Engine.png";
 var planningFields = [
   { key: "baseTvBudgetExBts", label: "Base TV budget excl. BTS", type: "currency", step: 1e3, helper: "Workbook baseline TV budget before the proof layer." },
   { key: "linearTvShare", label: "Linear TV share", type: "percent", step: 1, helper: "Automatically rebalances against BVoD share to total 100%." },
