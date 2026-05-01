@@ -1,4 +1,6 @@
 // src/config/modelConfig.js
+window.BTS_LOGO_SRC = "../bts-logo-inverted.png";
+window.PROOF_MARK_SRC = "../proof-roi-engine.png";
 var mediaTypes = {
   "Daytime": {
     "label": "Daytime"
@@ -7520,6 +7522,4 @@ function getCurrentFactorOverrides() {
 }
 renderApp();
 
-// github-pages-entry.js
-window.BTS_LOGO_SRC = "../bts-logo-inverted.png";
-window.PROOF_MARK_SRC = "../proof-roi-engine.png";
+
