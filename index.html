@@ -2111,7 +2111,7 @@ if (!isValid) {
       </div>
     </div>
   `;
-  throw new Error("Access denied");
+  return; // 
 }
 console.log("Access granted:", accessToken, "| Source:", source);
 })();
