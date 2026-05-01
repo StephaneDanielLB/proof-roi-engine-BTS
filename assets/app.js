@@ -5503,8 +5503,8 @@ var rateCardAdapterDiagnostics = {
 
 // src/App.js
 var root = document.getElementById("root");
-var logoSrc = BTS_LOGO_SRC = "/proof-roi-engine/bts-logo-inverted.png";
-var proofMark = PROOF_MARK_SRC = "/proof-roi-engine/proof-roi-engine.png";
+var logoSrc = BTS_LOGO_SRC ;
+var proofMark = PROOF_MARK_SRC ;
 var planningFields = [
   { key: "baseTvBudgetExBts", label: "Base TV budget excl. BTS", type: "currency", step: 1e3, helper: "Workbook baseline TV budget before the proof layer." },
   { key: "linearTvShare", label: "Linear TV share", type: "percent", step: 1, helper: "Automatically rebalances against BVoD share to total 100%." },
