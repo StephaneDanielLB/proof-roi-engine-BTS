@@ -2115,9 +2115,16 @@ if (!isValid) {
 }
 console.log("Access granted:", accessToken, "| Source:", source);
 })();
-
 </script>
-
-<script type="module" src="./build-standalone.mjs"></script>
-</body>
-</html>
+    
+<script>
+(function () {
+  const hash = window.location.hash;
+  const iframe = document.createElement("iframe");
+  iframe.src = "./standalone-demo.html" + hash;
+  iframe.style.width = "100%";
+  iframe.style.height = "100vh";
+  iframe.style.border = "none";
+  document.body.appendChild(iframe);
+})();
+</script>
