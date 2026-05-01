@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuyTryShare | Proof ROI Engine</title>
-<style>
+    <style>
+
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-Light.woff2") format("woff2");
+  src: url("./assets/fonts/OpenSans-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -15,7 +16,7 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-SemiBold.woff2") format("woff2");
+  src: url("./assets/fonts/OpenSans-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -23,7 +24,7 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-Bold.woff2") format("woff2");
+  src: url("./assets/fonts/OpenSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -33,12 +34,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-* {
-  font-family: "Open Sans", Arial, sans-serif !important;
-}
-
 body {
-  font-family: "Open Sans", Arial, sans-serif !important;
+  margin: 0;
+  background: #0b0f19;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
 }
 
 :root {
@@ -2060,71 +2061,50 @@ input:focus {
   }
 }
 
+    
     </style>
   </head>
-  <body> 
-  <div id="root"></div>
-
-<script>
-(function () {
-const params = new URLSearchParams(window.location.search);
-const accessToken = params.get("access");
-const source = params.get("utm") || "unknown";
-
-const allowedTokens = new Set([
-  "bts-2026",
-  "tvreviewers",
-  "review-tech"
-]);
-
-const isBrevo =
-  document.referrer.includes("brevo") ||
-  document.referrer.includes("sibforms");
-
-const isValid =
-  (
-    typeof accessToken === "string" &&
-    [...allowedTokens].some(t => accessToken.startsWith(t))
-  )
-  || isBrevo;
-
-if (!isValid) {
-  document.body.innerHTML = `
-    <div style="
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#0b0b0f;
-      color:white;
-      font-family:sans-serif;
-    ">
-      <div style="text-align:center;">
-        <h2>🔒 Professional Access Only</h2>
-        <p>
-          This tool is available by invitation only or via
-          <a href="https://urlr.me/S9ZTgb" target="_blank" style="color:#6cf;">
-            this access link
-          </a>.
-        </p>
-      </div>
-    </div>
-  `;
-  return; // 
+  <body>
+    h1, h2 {
+  font-weight: 700;
 }
-console.log("Access granted:", accessToken, "| Source:", source);
-})();
-</script>
-    
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const search = window.location.search;
-  const iframe = document.createElement("iframe");
-  iframe.src = "./standalone-demo.html" + window.location.search;
-  iframe.style.width = "100%";
-  iframe.style.height = "100vh";
-  iframe.style.border = "none";
-  document.getElementById("root").appendChild(iframe);
-});
-</script>
-<!-- force redeploy -->
+h3, h4 {
+  font-weight: 600;
+}
+p, span {
+  font-weight: 300;
+}
+    <script>
+      (function () {
+        const allowedTokens = new Set([
+          "BTS-PROOF-LAYER-7621",
+          "PROOF-MEETS-MEDIA-8472"
+        ]);
+        const accessToken = new URLSearchParams(window.location.search).get("access");
+
+        if (!allowedTokens.has(accessToken)) {
+
+    document.body.innerHTML = `
+
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;background:#0b0b0f;color:#f3f7fb;font-family:'Open Sans', Arial, sans-serif;text-align:center;">
+            <div style="max-width:520px;">
+                <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#95a2b7;margin-bottom:12px;">Private Access</div>
+                <h1 style="margin:0 0 12px;font-size:32px;line-height:1.15;">Access denied</h1>
+                <p style="margin:0;color:#95a2b7;font-size:16px;line-height:1.6;">
+                    A valid access token is required to view this page.
+                </p>
+            </div>
+        </div>
+    `;
+    return;
+}
+
+        if (!allowedTokens.has(accessToken)) {
+          throw new Error("Access denied");
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="./assets/app.js"></script>
+  </body>
+</html>
