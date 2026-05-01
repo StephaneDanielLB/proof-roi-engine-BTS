@@ -2120,7 +2120,7 @@ console.log("Access granted:", accessToken, "| Source:", source);
 document.addEventListener("DOMContentLoaded", function () {
   const search = window.location.search;
   const iframe = document.createElement("iframe");
-  iframe.src = "./standalone-demo.html" + search;
+  iframe.src = "./standalone-demo.html" + window.location.search;
   iframe.style.width = "100%";
   iframe.style.height = "100vh";
   iframe.style.border = "none";
