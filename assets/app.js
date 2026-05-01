@@ -5827,7 +5827,7 @@ function renderApp() {
         </div>
         <div class="header-spacer" aria-hidden="true"></div>
         <div class="product-lockup">
-          <img class="proof-logo-inline" src="${proofMarkSrc}" alt="The Proof ROI Engine" />
+          <img class="proof-logo-inline" src="${window.proofMarkSrc}" alt="The Proof ROI Engine" />
         </div>
       </header>
 
