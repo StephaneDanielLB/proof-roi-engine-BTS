@@ -1,6 +1,6 @@
 // src/config/modelConfig.js
 var BTS_LOGO_SRC = "/bts-logo-inverted.png";
-window.PROOF_MARK_SRC = "/proof-roi-engine.png";
+var PROOF_MARK_SRC = "/proof-roi-engine.png";
 var mediaTypes = {
   "Daytime": {
     "label": "Daytime"
