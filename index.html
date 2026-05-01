@@ -2104,7 +2104,18 @@ p, span {
         }
       })();
     </script>
+
     <div id="root"></div>
-    <script type="module" src="./assets/app.js"></script>
+
+    <script src="./assets/app.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      if (typeof renderApp === "function") {
+      renderApp();
+      } else {
+        console.error("renderApp not found");
+      }
+    });
+  </script>
+
   </body>
-</html>
