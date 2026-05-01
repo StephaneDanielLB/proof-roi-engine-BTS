@@ -2067,7 +2067,8 @@ input:focus {
 
 <script>
 (function () {
-const params = new URLSearchParams(window.location.search);
+const hash = window.location.hash.substring(1);
+const params = new URLSearchParams(hash);
 const accessToken = params.get("access");
 const source = params.get("utm") || "unknown";
 
