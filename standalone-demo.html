@@ -2067,7 +2067,8 @@ input:focus {
 
 <script>
 (function () {
-const params = new URLSearchParams(window.location.search);
+const hash = window.location.hash.substring(1);
+const params = new URLSearchParams(hash);
 const accessToken = params.get("access");
 const source = params.get("utm") || "unknown";
 
@@ -2110,11 +2111,20 @@ if (!isValid) {
       </div>
     </div>
   `;
+  return; // 
 }
 console.log("Access granted:", accessToken, "| Source:", source);
 })();
-
 </script>
-<script type="module" src="./build-standalone.mjs"></script>
-</body>
-</html>
+    
+<script>
+(function () {
+  const hash = window.location.hash;
+  const iframe = document.createElement("iframe");
+  iframe.src = "./standalone-demo.html" + hash;
+  iframe.style.width = "100%";
+  iframe.style.height = "100vh";
+  iframe.style.border = "none";
+  document.body.appendChild(iframe);
+})();
+</script>
