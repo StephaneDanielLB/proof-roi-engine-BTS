@@ -2067,8 +2067,7 @@ input:focus {
 
 <script>
 (function () {
-const hash = window.location.hash.substring(1);
-const params = new URLSearchParams(hash);
+const params = new URLSearchParams(window.location.search);
 const accessToken = params.get("access");
 const source = params.get("utm") || "unknown";
 
@@ -2119,9 +2118,9 @@ console.log("Access granted:", accessToken, "| Source:", source);
     
 <script>
 (function () {
-  const hash = window.location.hash;
+  const hash = window.location.search;
   const iframe = document.createElement("iframe");
-  iframe.src = "./standalone-demo.html" + hash;
+  iframe.src = "./standalone-demo.html" + search;
   iframe.style.width = "100%";
   iframe.style.height = "100vh";
   iframe.style.border = "none";
