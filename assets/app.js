@@ -5763,6 +5763,9 @@ function assertVerticalData(selectedVerticalKey) {
   }
 }
 function renderApp() {
+  if (!state.vertical) {
+  state.vertical = "automotive"; // ou défaut logique
+  }
   const scrollX = window.scrollX;
   const scrollY = window.scrollY;
   const selectedVerticalKey = normalizeVerticalKey(state.vertical);
