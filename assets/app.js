@@ -5826,11 +5826,11 @@ function renderApp() {
     <main class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
-          <img class="brand-logo" src="${logoSrc}" alt="BuyTryShare logo" />
+         <img class="brand-logo" src="${window.BTS_LOGO_SRC}" alt="BuyTryShare logo" />
         </div>
         <div class="header-spacer" aria-hidden="true"></div>
         <div class="product-lockup">
-          <img class="proof-logo-inline" src="${window.proofMarkSrc}" alt="The Proof ROI Engine" />
+        <img class="proof-logo-inline" src="${window.PROOF_MARK_SRC}" alt="The Proof ROI Engine" />
         </div>
       </header>
 
