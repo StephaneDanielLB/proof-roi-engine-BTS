@@ -5916,16 +5916,6 @@ function renderApp() {
       </section>
 
       <section class="mobile-executive-stack">
-        <article class="panel results-panel mobile-killer-insight-card ${killerInsight.tone}">
-          <div class="panel-header compact">
-            <div>
-              <p class="section-label">Model output</p>
-              <h2>Mobile insight</h2>
-            </div>
-          </div>
-          <strong class="mobile-insight-headline">${killerInsight.headline}</strong>
-          <p class="panel-note">${killerInsight.support}</p>
-        </article>
         <article class="panel recommendation-panel decision-panel ${recommendationCardTone} mobile-recommendation-panel">
           <div class="panel-header compact">
             <div>
