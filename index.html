@@ -1,71 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuyTryShare | Proof ROI Engine</title>
+
     <style>
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("./OpenSans-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+       /* fonts */
+      @font-face {
+       font-family: "Open Sans";
+       src: url("./assets/OpenSans-Light.woff2") format("woff2");
+       font-weight: 300;
+       font-style: normal;
+       font-display: swap;
+      }
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("./OpenSans-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+      @font-face {
+        font-family: "Open Sans";
+        src: url("./assets/OpenSans-SemiBold.woff2") format("woff2");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+        }
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("./OpenSans-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+       @font-face {
+        font-family: "Open Sans";
+        src: url("./assets/OpenSans-Bold.woff2") format("woff2"); font-weight: 700;
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
 
-html {
-  -webkit-font-smoothing: antialiased;
-}
+      h1, h2 { font-weight: 700; }
+      h3, h4 { font-weight: 600; }
+      p, span { font-weight: 300; }
 
-body {
-  margin: 0;
-  background: #0b0f19;
-  color: white;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-}
+      body {
+        margin: 0;
+        background: #0b0f19;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+       }
 
-:root {
-  color-scheme: dark;
-  --bg: #0b0b0f;
-  --panel: #11141b;
-  --panel-2: #141923;
-  --panel-3: #0f131a;
-  --line: rgba(108, 132, 171, 0.18);
-  --line-strong: rgba(102, 194, 255, 0.32);
-  --text: #f3f7fb;
-  --muted: #95a2b7;
-  --cyan: #66c2ff;
-  --input-blue: #4da3ff;
-  --success: #22c55e;
-  --danger-strong: #ef4444;
-  --blue: #4f7fff;
-  --direct: #35589d;
-  --proof: #66c2ff;
-  --warning: #cdb488;
-  --danger: #c9828d;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
-  --radius-xl: 28px;
-  --radius-lg: 22px;
-  --radius-md: 16px;
-}
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      :root {
+        color-scheme: dark;
+        --bg: #0b0b0f;
+        --panel: #11141b;
+        --panel-2: #141923;
+        --panel-3: #0f131a;
+        --line: rgba(108, 132, 171, 0.18);
+        --line-strong: rgba(102, 194, 255, 0.32);
+        --text: #f3f7fb;
+         --muted: #95a2b7;
+         --cyan: #66c2ff;
+         --input-blue: #4da3ff;
+         --success: #22c55e;
+         --danger-strong: #ef4444;
+         --blue: #4f7fff;
+         --direct: #35589d;
+         --proof: #66c2ff;
+         --warning: #cdb488;
+         --danger: #c9828d;
+          --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+          --radius-xl: 28px;
+          --radius-lg: 22px;
+          --radius-md: 16px;
+        }
 
 * {
   box-sizing: border-box;
@@ -2060,20 +2068,10 @@ input:focus {
     text-align: left;
   }
 }
-
-    
-    </style>
+</style>
   </head>
+  
   <body>
-    h1, h2 {
-  font-weight: 700;
-}
-h3, h4 {
-  font-weight: 600;
-}
-p, span {
-  font-weight: 300;
-}
     <script>
       (function () {
         const allowedTokens = new Set([
