@@ -2069,82 +2069,69 @@ input:focus {
     text-align: left;
   }
 }
-</style>
-  </head>
-  
-  <body>
-    <script>
-      (function () {
-        const allowedTokens = new Set([
-          "BTS-PROOF-LAYER-7621",
-          "PROOF-MEETS-MEDIA-8472"
-        ]);
-        const hash = window.location.hash;
-        const search = window.location.search;
-
-        let accessToken = null;
-
-        if (hash.startsWith("#access=")) {
-          accessToken = hash.replace("#access=", "")
-
-         } else {
-          const params = new URLSearchParams(search);
-          accessToken = params.get("access");
-        } 
-
-        window.addEventListener("hashchange", () => {
-          window.location.reload();
-        });
-
-        if (!allowedTokens.has(accessToken)) {
-
-  <script>
-    (function () {
-
-      const root = document.getElementById("root");
-
-  
-
-  if (root) {
-
-    root.innerHTML = `
-    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0f19;color:#fff;font-family:'Open Sans', sans-serif;">
-      <div style="text-align:center;max-width:520px;">
-        <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#95a2b7;margin-bottom:12px;">
-          Private Access
-          </div>
-          <h1 style="font-size:28px;margin-bottom:16px;">
-            Access restricted to professionals
-            </h1>
-            <p style="color:#95a2b7;font-size:16px;">
-            BuyTryShare’s Proof ROI Engine is only accessible via this link:
-            <br><br>
-            <a href="https://urlr.me/S9ZTgb" style="color:#4f7fff;">
-              urlr.me/S9ZTgb
-              </a>
-          </p>
-        </div>
-      </div>
-    `;
-    return;
-  }
-
-})();
-
-</script>
+  </style>
+</head>
+    
+<body>
 
 <div id="root"></div>
 
+<script>
+(function () {
+  const allowedTokens = new Set([
+    "BTS-PROOF-LAYER-7621",
+    "PROOF-MEETS-MEDIA-8472"
+  ]);
+
+  const hash = window.location.hash;
+  const search = window.location.search;
+  let accessToken = null;
+
+  if (hash.startsWith("#access=")) {
+    accessToken = hash.replace("#access=", "");
+  } else {
+    const params = new URLSearchParams(search);
+    accessToken = params.get("access");
+  }
+
+  const root = document.getElementById("root");
+
+  if (!allowedTokens.has(accessToken)) {
+    if (root) {
+      root.innerHTML = `
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0f19;color:#fff;font-family:'Open Sans', sans-serif;">
+          <div style="text-align:center;max-width:520px;">
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#95a2b7;margin-bottom:12px;">
+              Private Access
+            </div>
+            <h1 style="font-size:28px;margin-bottom:16px;">
+              Access restricted to professionals
+            </h1>
+            <p style="color:#95a2b7;font-size:16px;">
+              BuyTryShare's Proof ROI Engine is only accessible via this link:
+              <br><br>
+              <a href="https://urlr.me/S9ZTgb" style="color:#4f7fff;">
+                urlr.me/S9ZTgb
+              </a>
+            </p>
+          </div>
+        </div>
+      `;
+    }
+  } else {
+    window.addEventListener("DOMContentLoaded", function () {
+      if (typeof renderApp === "function") {
+        renderApp();
+      } else {
+        console.error("renderApp not found");
+      }
+    });
+  }
+
+})();
+</script>
+
 <script src="assets/app.js"></script>
 
-<script>
-window.addEventListener("DOMContentLoaded", function () {
-  if (typeof renderApp === "function") {
-    renderApp();
-  } else {
-    console.error("renderApp not found");
-  }
-});
-</script>
 </body>
 </html>
