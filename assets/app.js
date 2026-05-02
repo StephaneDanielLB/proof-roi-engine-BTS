@@ -5939,9 +5939,6 @@ function renderApp() {
         <div class="scenario-cards mobile-scenario-stack">
           ${scenarioCardsHtml}
         </div>
-        <p class="panel-note scenario-description-single ${activeScenarioLeverage.tone}">${activeScenarioLeverage.helper}</p>
-        ${activeScenarioLeverage.tone === "negative" ? `<p class="panel-note scenario-context-note">Low leverage context: proof impact is structurally limited without strong media efficiency.</p>` : ""}
-      </section>
 
       <section class="impact-brand-grid">
         <article class="panel impact-panel">
