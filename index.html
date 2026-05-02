@@ -2084,6 +2084,10 @@ input:focus {
         ? hash.replace("#access=", "")
         : null;
 
+        window.addEventListener("hashchange", () => {
+          window.location.reload();
+        });
+
         if (!allowedTokens.has(accessToken)) {
 
     document.body.innerHTML = `
@@ -2110,11 +2114,9 @@ input:focus {
             }
           })();
         
-    </script>
+    <script src="./assets/app.js?v=clean"></script>
     
     <div id="root"></div>
-    
-    <script src="./assets/app.js"></script>
     
     <script>
     window.addEventListener("DOMContentLoaded", function () {
