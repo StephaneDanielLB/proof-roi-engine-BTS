@@ -5939,6 +5939,10 @@ function renderApp() {
         <div class="scenario-cards mobile-scenario-stack">
           ${scenarioCardsHtml}
         </div>
+<<<<<<< HEAD
+=======
+      </section>
+>>>>>>> 35e0bb5 (remove scenario helper text)
 
       <section class="impact-brand-grid">
         <article class="panel impact-panel">
