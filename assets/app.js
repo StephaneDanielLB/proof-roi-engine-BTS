@@ -6007,7 +6007,6 @@ function renderApp() {
           <div class="panel-header">
             <div>
               <p class="section-label">Scenario</p>
-              <h2>Modeled scenario</h2>
             </div>
           </div>
           <div class="chip-row">
