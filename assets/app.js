@@ -5915,11 +5915,35 @@ function renderApp() {
         </article>
       </section>
 
+      <section class="mobile-executive-stack">
+        <article class="panel results-panel mobile-killer-insight-card ${killerInsight.tone}">
+          <div class="panel-header compact">
+            <div>
+              <p class="section-label">Model output</p>
+              <h2>Mobile insight</h2>
+            </div>
+          </div>
+          <strong class="mobile-insight-headline">${killerInsight.headline}</strong>
+          <p class="panel-note">${killerInsight.support}</p>
+        </article>
+        <article class="panel recommendation-panel decision-panel ${recommendationCardTone} mobile-recommendation-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="section-label">Action</p>
+              <h2>Recommended action</h2>
+            </div>
+          </div>
+          <div class="recommendation-copy">
+            <strong>${recommendationStatus}</strong>
+            <p>${getDisplayDecisionExplanation(results, comparisonView)}</p>
+          </div>
+        </article>
+      </section>
+
       <section class="panel selector-panel mobile-scenario-focus">
         <div class="panel-header">
           <div>
             <p class="section-label">Scenario</p>
-            <h2>Modeled scenario</h2>
           </div>
         </div>
         <div class="scenario-cards mobile-scenario-stack">
