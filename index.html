@@ -2098,47 +2098,53 @@ input:focus {
 
         if (!allowedTokens.has(accessToken)) {
 
-  const root = document.getElementById("root");
+  <script>
+    (function () {
+
+      const root = document.getElementById("root");
+
+  
 
   if (root) {
+
     root.innerHTML = `
-      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0f19;color:#fff;font-family:'Open Sans', sans-serif;">
-        <div style="text-align:center;max-width:520px;">
-          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#95a2b7;margin-bottom:12px;">
-            Private Access
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0f19;color:#fff;font-family:'Open Sans', sans-serif;">
+      <div style="text-align:center;max-width:520px;">
+        <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#95a2b7;margin-bottom:12px;">
+          Private Access
           </div>
           <h1 style="font-size:28px;margin-bottom:16px;">
             Access restricted to professionals
-          </h1>
-          <p style="color:#95a2b7;font-size:16px;">
+            </h1>
+            <p style="color:#95a2b7;font-size:16px;">
             BuyTryShare’s Proof ROI Engine is only accessible via this link:
             <br><br>
             <a href="https://urlr.me/S9ZTgb" style="color:#4f7fff;">
               urlr.me/S9ZTgb
-            </a>
+              </a>
           </p>
         </div>
       </div>
     `;
+    return;
   }
-  return;
 
-}
-            }
-          })();
-        
-    <script src="/assets/app.js?v=clean"></script>
-    
-    <div id="root"></div>
-    
-    <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      if (typeof renderApp === "function") {
-      renderApp();
-      } else {
-        console.error("renderApp not found");
-      }
-    });
-  </script>
+})();
 
-  </body>
+</script>
+
+<div id="root"></div>
+
+<script src="assets/app.js"></script>
+
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  if (typeof renderApp === "function") {
+    renderApp();
+  } else {
+    console.error("renderApp not found");
+  }
+});
+</script>
+</body>
+</html>
