@@ -1418,6 +1418,11 @@ h3 {
   box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.08), 0 16px 40px rgba(0, 0, 0, 0.24), 0 0 22px rgba(201, 130, 141, 0.12);
 }
 
+.mobile-executive-stack,
+.mobile-scenario-focus {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .scenario-cards {
     flex-direction: column;
@@ -1429,6 +1434,11 @@ h3 {
 }
 
 @media (max-width: 768px) {
+  .mobile-executive-stack,
+  .mobile-scenario-focus {
+    display: block;
+  }
+
   .top-overview {
     gap: 20px;
   }
