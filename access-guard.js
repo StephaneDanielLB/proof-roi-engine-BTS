@@ -4,9 +4,11 @@
   const BREVO_FORM_URL = "https://urlr.me/D5fwnp";
   const BASE = "/proof-roi-engine-BTS";
 
-  function getTokenFromHash() {
-    const match = window.location.hash.match(/[#&]token=([a-f0-9]+)/);
-    return match ? match[1] : null;
+function getTokenFromHash() {
+  const match = window.location.hash.match(/[#&]token=([a-f0-9]+)/);
+    if (match) return match[1];
+    const p = new URLSearchParams(window.location.search);
+    return p.get("token");
   }
   function saveToken(t) { try { sessionStorage.setItem("bts_tok", t); } catch (_) {} }
   function getSavedToken() { try { return sessionStorage.getItem("bts_tok"); } catch (_) { return null; } }
