@@ -75,7 +75,7 @@
             height:60px;
             width:auto;
             display:block;
-            margin-left:-12px;
+            margin-left:-22px;
           }
           .bts-slogan {
             font-size:13px;
