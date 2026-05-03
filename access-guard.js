@@ -68,14 +68,11 @@
           }
           /* Logo inverted: fond noir transparent — on le coupe proprement */
           .bts-logo-wrap {
-            background:#000;
-            border-radius:4px;
-            padding:6px 12px;
-            display:inline-block;
-            line-height:0;
+              display:inline-block;
+              line-height:0;
           }
           .bts-logo {
-            height:32px;
+            height:60px;
             width:auto;
             display:block;
           }
