@@ -2083,17 +2083,244 @@ input:focus {
   .impact-grid {
     grid-template-columns: 1fr;
   }
-
+ 
+  /* Revenue PUIS Economics en colonne */
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+ 
+  /* Interpretation PUIS Model en colonne */
+  .top-kpi-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .interpretation-card,
+  .model-card {
+    width: 100%;
+    max-width: 100%;
+  }
+ 
+  .model-card {
+    flex: none;
+  }
+ 
   .panel-header,
   .panel-header.compact,
   .footer-signature {
     flex-direction: column;
     align-items: start;
   }
-
+ 
   .rate-card-preview-selectors,
   .selectors {
     flex-direction: column;
+  }
+ 
+  /* Impact grid : 1 colonne sur tablette */
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Business rows en colonne */
+  .business-context-row,
+  .business-row-performance,
+  .business-row-strategic,
+  .business-row-cost {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Control grid en colonne */
+  .control-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Scenario cards en colonne */
+  .scenario-cards {
+    flex-direction: column;
+  }
+ 
+  /* Executive summary en colonne */
+  .executive-summary-strip {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* KPI rows en colonne */
+  .kpi-row,
+  .incremental-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+ 
+  .kpi-row .kpi-card,
+  .incremental-row .kpi-card {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}
+ 
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(96vw, 1800px);
+    padding: 14px 0 24px;
+  }
+ 
+  .panel,
+  .headline-card,
+  .proof-mark-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+ 
+  /* ── TOPBAR ── */
+  .topbar {
+    gap: 8px;
+    padding: 8px 8px 13px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+ 
+  .header-spacer {
+    min-width: 8px;
+    flex: 0 1 8px;
+  }
+ 
+  .brand-lockup,
+  .product-lockup {
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+ 
+  /* Logo BuyTryShare : taille correcte + pas de croix */
+  .brand-logo {
+    width: min(140px, 36vw) !important;
+    min-width: 80px !important;
+    max-width: 160px !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+ 
+  /* Logo Proof ROI Engine */
+  .proof-logo-inline {
+    width: min(82px, 20vw) !important;
+    min-width: 0 !important;
+    max-width: 92px !important;
+    height: auto !important;
+    max-height: 48px !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+ 
+  /* ── OVERVIEW : Revenue PUIS Economics ── */
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+ 
+  .overview-column {
+    width: 100%;
+    max-width: 100%;
+  }
+ 
+  /* ── KPI row : Interpretation PUIS Model ── */
+  .top-kpi-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .interpretation-card,
+  .model-card {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+ 
+  .interpretation-text-block p {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.5;
+  }
+ 
+  /* ── Grilles en colonne ── */
+  .impact-grid,
+  .business-context-row,
+  .business-row-performance,
+  .business-row-strategic,
+  .business-row-cost,
+  .control-grid,
+  .factor-matrix,
+  .field-grid,
+  .proof-grid {
+    grid-template-columns: 1fr !important;
+  }
+ 
+  .factors-grid {
+    flex-direction: column;
+  }
+ 
+  /* ── Scenario cards en colonne ── */
+  .scenario-cards {
+    flex-direction: column;
+  }
+ 
+  /* ── KPI cards pleine largeur ── */
+  .kpi-row,
+  .incremental-row {
+    flex-wrap: wrap !important;
+    gap: 12px;
+  }
+ 
+  .kpi-row .kpi-card,
+  .incremental-row .kpi-card {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+ 
+  /* ── Chips pleine largeur ── */
+  .chip {
+    width: 100%;
+    text-align: left;
+  }
+ 
+  /* ── Valeurs lisibles ── */
+  .hero-value {
+    font-size: clamp(2.8rem, 10vw, 5rem);
+  }
+ 
+  .contrast-value {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+ 
+  .metric-card strong,
+  .value-strong,
+  .value-light {
+    font-size: clamp(16px, 5vw, 24px) !important;
+  }
+ 
+  /* ── Split stat ── */
+  .split-stat {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+ 
+  .split-stat .value-strong {
+    text-align: left;
+    flex: none;
+  }
+ 
+  /* ── Workspace ── */
+  .workspace-grid {
+    grid-template-columns: 1fr !important;
+  }
+ 
+  .left-rail,
+  .center-rail,
+  .right-rail {
+    max-width: 100%;
   }
 }
 
