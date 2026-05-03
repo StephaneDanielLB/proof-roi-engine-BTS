@@ -75,6 +75,7 @@
             height:60px;
             width:auto;
             display:block;
+            margin-left:-12px;
           }
           .bts-slogan {
             font-size:13px;
@@ -169,9 +170,7 @@
           <div class="bts-content">
 
             <header class="bts-header">
-              <div class="bts-logo-wrap">
-                <img class="bts-logo" src="${BASE}/BuyTryShare_Logo__inverted_.png" alt="BuyTryShare">
-              </div>
+              <img class="bts-logo" src="${BASE}/BuyTryShare_Logo__inverted_.png" alt="BuyTryShare">
               <p class="bts-slogan">
                 Your ad is <b>seen</b>.<br>
                 We make it <b>trusted</b>.
