@@ -225,6 +225,10 @@ function getTokenFromHash() {
       });
       const data = await res.json();
       if (data.valid) {
+        if (window.location.hostname === "stephanedaniellb.github.io") {
+          window.top.location.href = "https://buytryshare.com/the-proof-roi-engine";
+          return;
+        }
         document.documentElement.style.visibility = "visible";
       } else {
         sessionStorage.removeItem("bts_tok");
