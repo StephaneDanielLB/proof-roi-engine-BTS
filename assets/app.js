@@ -7509,4 +7509,120 @@ function getCurrentFactorOverrides() {
 }
 renderApp();
 
+// ── UX Enhancements ────────────────────────────────────────────
+(function () {
 
+  var TOOLTIP_DATA = {
+    qrScanRate: { source: 'CESP / industry QR usage studies (2022-2024)', range: '0.02% – 0.25% depending on creative & category' },
+    scanRate: { source: 'CESP / industry QR usage studies (2022-2024)', range: '0.01% – 0.15% depending on format & vertical' },
+    qualifiedVisitRate: { source: 'Nielsen Field studies; BTS internal benchmark', range: '60% – 85% across verticals' },
+    baseAttentionRate: { source: 'Lumen / Karen Nelson-Field attention research', range: '20% – 70% (Daytime < Primetime)' },
+    assistedUplift: { source: 'BTS proof-layer observed uplift; academic meta-analysis', range: '0.5% – 3% on influenced audience' },
+    closeRate: { source: 'Automotive dealer funnel studies; OEM benchmark', range: '12% – 28% close rate from test-drive' },
+    basket: { source: 'IRI / Nielsen retail panel; client brief', range: 'FMCG €15–€50 / Retail €80–€500' },
+    margin: { source: 'Category gross-margin norm; client brief', range: 'FMCG 20–35% / Retail 15–28%' },
+    arpu: { source: 'ARCEP telecommunications observatory', range: '€20–€35/month depending on offer mix' },
+    inMarketShoppers: { source: 'JATO / GfK automotive in-market tracker', range: '2%–5% of audience actively in-market' }
+  };
+
+  var CSS = [
+    '.bts-banner{position:sticky;top:0;z-index:400;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;background:rgba(15,19,30,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(77,163,255,0.18);font-family:"Open Sans",Arial,sans-serif;font-size:.82rem;color:rgba(200,215,240,.88);box-shadow:0 4px 24px rgba(0,0,0,.28)}',
+    '.bts-banner strong{color:#66c2ff;font-weight:700}',
+    '.bts-banner-cta{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:rgba(77,163,255,.10);border:1px solid rgba(77,163,255,.28);color:#66c2ff;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;font-family:inherit}',
+    '@keyframes bts-pulse{0%{box-shadow:0 0 0 0 rgba(77,163,255,0)}30%{box-shadow:0 0 0 8px rgba(77,163,255,.2);border-color:rgba(77,163,255,.6)}100%{box-shadow:0 0 0 0 rgba(77,163,255,0)}}',
+    '.bts-hl{animation:bts-pulse 2s ease forwards}',
+    '.bts-badge{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background:rgba(77,163,255,.10);border:1px solid rgba(77,163,255,.28);color:#66c2ff;font-size:9px;font-style:italic;font-weight:700;cursor:pointer;margin-left:4px;vertical-align:middle;position:relative}',
+    '.bts-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);z-index:600;width:220px;padding:10px 12px;border-radius:10px;background:rgba(17,23,38,.97);border:1px solid rgba(77,163,255,.28);box-shadow:0 8px 32px rgba(0,0,0,.48);font-size:.76rem;line-height:1.5;color:rgba(200,215,240,.9);pointer-events:none;opacity:0;visibility:hidden;transition:opacity 150ms ease;white-space:normal}',
+    '.bts-tip.on{opacity:1;visibility:visible}',
+    '.bts-tip-src{display:block;color:#66c2ff;font-weight:700;font-size:.72rem;text-transform:uppercase;margin-bottom:3px}',
+    '.bts-scenario-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;border:1px solid transparent}',
+    '.bts-scenario-pill.upside{background:rgba(34,197,94,.10);border-color:rgba(34,197,94,.28);color:#4ade80}',
+    '.bts-scenario-pill.base{background:rgba(77,163,255,.10);border-color:rgba(77,163,255,.28);color:#66c2ff}',
+    '.bts-scenario-pill.stress{background:rgba(239,68,68,.10);border-color:rgba(239,68,68,.28);color:#f87171}'
+  ].join('');
+
+  function injectStyles() {
+    if (document.getElementById('bts-ux-css')) return;
+    var s = document.createElement('style');
+    s.id = 'bts-ux-css';
+    s.textContent = CSS;
+    document.head.appendChild(s);
+  }
+
+  function injectBanner() {
+    if (document.querySelector('.bts-banner')) return;
+    var topbar = document.querySelector('.topbar');
+    if (!topbar) return;
+    var b = document.createElement('div');
+    b.className = 'bts-banner';
+    b.innerHTML = '<span><strong>Simulation driven by your assumptions.</strong> Adjust conversion rates, media parameters and business inputs at any time.</span><button class="bts-banner-cta">Adjust assumptions ↓</button>';
+    b.querySelector('.bts-banner-cta').addEventListener('click', function () {
+      var panel = document.querySelector('.input-panel');
+      if (!panel) return;
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      panel.classList.remove('bts-hl');
+      void panel.offsetWidth;
+      panel.classList.add('bts-hl');
+      setTimeout(function () { panel.classList.remove('bts-hl'); }, 2200);
+    });
+    topbar.parentNode.insertBefore(b, topbar.nextSibling);
+  }
+
+  function injectTooltips() {
+    document.querySelectorAll('[data-input-key]').forEach(function (input) {
+      var key = input.getAttribute('data-input-key');
+      if (!key || !TOOLTIP_DATA[key]) return;
+      var label = input.closest('label') || input.closest('.field');
+      if (!label) return;
+      var span = label.querySelector('span');
+      if (!span || span.querySelector('.bts-badge')) return;
+      var data = TOOLTIP_DATA[key];
+      var badge = document.createElement('span');
+      badge.className = 'bts-badge';
+      badge.textContent = 'i';
+      var tip = document.createElement('span');
+      tip.className = 'bts-tip';
+      tip.innerHTML = '<span class="bts-tip-src">Source</span>' + data.source + '<span class="bts-tip-src" style="margin-top:5px">Range</span>' + data.range;
+      badge.appendChild(tip);
+      badge.addEventListener('mouseenter', function () { tip.classList.add('on'); });
+      badge.addEventListener('mouseleave', function () { tip.classList.remove('on'); });
+      badge.addEventListener('click', function (e) { e.stopPropagation(); tip.classList.toggle('on'); });
+      span.appendChild(badge);
+    });
+  }
+
+  function injectScenarioPill() {
+    var hero = document.querySelector('.decision-contrast-grid.kpi-row');
+    if (!hero) return;
+    var card = hero.querySelector('.kpi-card');
+    if (!card || card.querySelector('.bts-scenario-pill')) return;
+    var scenario = 'Base';
+    var active = document.querySelector('[data-selector="scenario"].active');
+    if (active) scenario = active.dataset.value || active.textContent.trim();
+    var pill = document.createElement('div');
+    pill.className = 'bts-scenario-pill ' + scenario.toLowerCase();
+    pill.textContent = 'Scenario: ' + scenario;
+    card.appendChild(pill);
+  }
+
+  function enhance() {
+    injectStyles();
+    injectBanner();
+    injectTooltips();
+    injectScenarioPill();
+  }
+
+  // S'exécute après chaque renderApp()
+  var _originalRenderApp = window.renderApp;
+  var _render = typeof renderApp === 'function' ? renderApp : null;
+  if (_render) {
+    window.renderApp = function () {
+      _render.apply(this, arguments);
+      setTimeout(enhance, 80);
+    };
+  }
+
+  // Premier appel immédiat
+  setTimeout(enhance, 300);
+
+})();
